@@ -3,6 +3,8 @@ import Buscador from '../../Buscador';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useHistory, useLocation } from 'react-router-dom';
+import LoginModel from './LoginModel';
+import Category from '../Category';
 
 
 export class Home extends Component {
@@ -31,43 +33,20 @@ export class Home extends Component {
         }
     }
 
+    closeModal = () => this.setState({ addModalShow: false });
 
     render() {
-        let closeModal = () => this.setState({ addModalShow: false });
        
         return (
             <div>
+
                 <Buscador />
+                <Category />
                 <div>
-                    <Button onClick={e =>{this.validarLogin()}}>Save</ Button>
+               
+                    <Button onClick={e =>{this.validarLogin()}}>Save </Button>
                     <Button variant="primary" onClick={e => { this.mostrarDialogo() }}> Login </Button>
-                    <Modal show={this.state.addModalShow} onHide={closeModal} animation={false}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Login</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <form >
-                                <div className="form-group">
-                                    <label for="exampleInputEmail1"><b>Email</b></label>
-                                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your information with anyone else.</small>
-                                    <div className="form-group">
-                                    <label for="exampleInputPassword1" ><b>Password</b></label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-                                    <Button vype="submit" class="btn btn-primary" onClick={e => {this.ejecutarLogin() }} >Login</Button>
-                                    </div>
-                                </div>
-                            </form>
-                        </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={closeModal}>
-                                            Close
-                            </Button>
-                                        <Button variant="primary" onClick={closeModal}>
-                                            Save Changes
-                            </Button>
-                                    </Modal.Footer>
-                    </Modal>
+                    <LoginModel show={this.state.addModalShow} close={() => this.closeModal()}/>
                 </div>
             </div>
                         )

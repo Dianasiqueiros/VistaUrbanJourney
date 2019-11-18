@@ -189,14 +189,6 @@ class SaveBuscador extends Component {
         return (
             //Contenedor para las opciones de Busqueda por Ciudad o Busqueda por Geolocalizacion
             <div className="container ml-2 my-sm-3">
-                <div className="btn-group-toggle ml-2 my-sm-3" data-toggle="buttons">
-                    <label className="btn btn-secondary">
-                        <input type="radio" name="location" value="location" checked={this.state.checked} onChange={this.handleChange} /> Buscar por ciudad
-                    </label>
-                    <label className="btn btn-secondary">
-                        <input type="radio" name="location" value="current" checked={!this.state.checked} onChange={this.handleChange} />Usar mi ubicacion
-                    </label>
-                </div>
 
                 {/** Formulario para la busqueda por Ciudad */}
                 <Formik
@@ -241,34 +233,7 @@ class SaveBuscador extends Component {
                
             */}
                 </Formik>
-                    <div>
-                        <table>
-                            <tr>
-                                <td>
-                                    {/** Grupo de opciones de actividades para marcar en el mapa */}
-
-                                    <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <RadioGroup onChange={this.manejarMarcadores}>
-                                            <RadioButton value="Guadalajara">Guadalajara</RadioButton>
-                                            <RadioButton value="Monterrey">Monterrey</RadioButton>
-                                            <RadioButton value="Ciudad Valles">Ciudad Valles</RadioButton>
-                                        </RadioGroup>
-
-                                    </div>
-                                </td>
-                                <td style={{}}>
-                                    {/** Creacion y parametrizacion de un Mapa de google */}
-                                    {marcadorSencillo}
-                                    {
-                                        /*
-                                        
-                                        {marcadoresMultiples}
-                                        */
-                                    }
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                   
             </div>
                 );
             }
@@ -285,5 +250,4 @@ class SaveBuscador extends Component {
         }
             
 export default GoogleApiWrapper({
-                    apiKey: 'AIzaSyAomYdf0G4S_QZ6TE6puT5x8eRcRaHXKo0'
 })(SaveBuscador);

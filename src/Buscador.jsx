@@ -13,7 +13,7 @@ class Buscador extends Component {
         this.state = {
             ciudad: '',
             geolocalizacion: '',
-            checked: false,
+            checked: true,
             colocado: true,
             colocado3: false,
             coordenadas: [],
@@ -189,7 +189,7 @@ class Buscador extends Component {
         return (
             //Contenedor para las opciones de Busqueda por Ciudad o Busqueda por Geolocalizacion
             <div className="container ml-2 my-sm-3">
-                <div className="btn-group-toggle ml-2 my-sm-3" data-toggle="buttons">
+                <div className="btn-group-toggle ml-2 my-sm-3" >
                     <label className="btn btn-secondary">
                         <input type="radio" name="location" value="location" checked={this.state.checked} onChange={this.handleChange} /> Buscar por ciudad
                     </label>
@@ -241,34 +241,7 @@ class Buscador extends Component {
                
             */}
                 </Formik>
-                    <div>
-                        <table>
-                            <tr>
-                                <td>
-                                    {/** Grupo de opciones de actividades para marcar en el mapa */}
-
-                                    <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <RadioGroup onChange={this.manejarMarcadores}>
-                                            <RadioButton value="Guadalajara">Guadalajara</RadioButton>
-                                            <RadioButton value="Monterrey">Monterrey</RadioButton>
-                                            <RadioButton value="Ciudad Valles">Ciudad Valles</RadioButton>
-                                        </RadioGroup>
-
-                                    </div>
-                                </td>
-                                <td style={{}}>
-                                    {/** Creacion y parametrizacion de un Mapa de google */}
-                                    {marcadorSencillo}
-                                    {
-                                        /*
-                                        
-                                        {marcadoresMultiples}
-                                        */
-                                    }
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                 
             </div>
                 );
             }
@@ -285,5 +258,4 @@ class Buscador extends Component {
         }
             
 export default GoogleApiWrapper({
-                   
 })(Buscador);

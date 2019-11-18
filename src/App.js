@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './components/Footer';
+import 'normalize.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navabar';
@@ -12,11 +13,12 @@ function App() {
   return (
     <div>
       <Navbar />
-      
         <Switch>
+        
           <Route exact  path="/" component={Home}/>
           <Route path="/itinerary" component={Itinerary}/>
         </Switch>
+        
       <Footer />
     </div>
   );
